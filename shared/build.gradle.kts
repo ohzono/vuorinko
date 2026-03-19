@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
@@ -14,6 +16,8 @@ kotlin {
         }
     }
 
+    val xcf = XCFramework("shared")
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -21,7 +25,9 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
+            binaryOption("bundleId", "com.komakoma.vuorinko.shared")
             isStatic = true
+            xcf.add(this)
         }
     }
 
