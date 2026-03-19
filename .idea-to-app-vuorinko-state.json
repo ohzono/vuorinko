@@ -1,11 +1,11 @@
 {
   "slug": "vuorinko",
-  "currentPhase": 5,
+  "currentPhase": 6,
   "prdPath": "prd.md",
   "parentIssue": 1,
   "ciSetupComplete": true,
   "subIssues": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-  "completedIssues": [],
+  "completedIssues": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
   "createdAt": "2026-03-19T00:00:00Z",
   "updatedAt": "2026-03-19T00:00:00Z",
   "techStack": {
