@@ -1,0 +1,12 @@
+/* Welcome */
+"welcome_subtitle" = "A safe, view-only photo album for kids.";
+"welcome_start" = "Get Started";
+
+/* Guided Access */
+"guided_access_title" = "Guided Access";
+"guided_access_desc" = "Guided Access keeps Vuorinko on screen so your child can't switch apps.";
+"guided_access_steps" = "1. Go to Settings > Accessibility > Guided Access\n2. Turn on Guided Access\n3. Set a passcode\n4. Open Vuorinko, triple-click the side button to start";
+
+/* Common */
+"common_next" = "Next";
+"common_skip" = "Skip";

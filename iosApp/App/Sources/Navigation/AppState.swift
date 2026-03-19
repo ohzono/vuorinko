@@ -3,7 +3,9 @@ import SwiftUI
 @Observable
 final class AppState {
     enum Screen {
+        case welcome
         case pinSetup
+        case guidedAccessGuide
         case pinInput
         case albumList
         case photoManage(albumId: String)
@@ -13,7 +15,7 @@ final class AppState {
     var currentScreen: Screen
 
     init() {
-        currentScreen = PinManager.shared.isPinSet ? .pinInput : .pinSetup
+        currentScreen = PinManager.shared.isPinSet ? .pinInput : .welcome
     }
 
     func navigateToAlbumList() {

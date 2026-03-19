@@ -1,4 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ビュオリン子</string>
+    <string name="app_subtitle">見るだけフォトアルバム</string>
+
+    <!-- Welcome -->
+    <string name="welcome_subtitle">お子様に安心して写真を見せられる、見るだけフォトアルバム。</string>
+    <string name="welcome_start">はじめる</string>
+
+    <!-- PIN -->
+    <string name="pin_input_title">PINを入力</string>
+    <string name="pin_setup_title">PINを設定してください</string>
+    <string name="pin_confirm_title">もう一度入力してください</string>
+    <string name="pin_error_wrong">PINが違います（残り%d回）</string>
+    <string name="pin_error_mismatch">PINが一致しません。やり直してください</string>
+    <string name="pin_lockout">ロック中…%d秒後に再試行</string>
+
+    <!-- Album -->
+    <string name="album_list_empty">アルバムがありません</string>
+    <string name="album_list_empty_hint">右下の＋ボタンで作成</string>
+    <string name="album_create_title">新しいアルバム</string>
+    <string name="album_name_label">アルバム名</string>
+    <string name="album_delete_title">アルバムを削除</string>
+    <string name="album_delete_message">「%s」を削除しますか？写真はライブラリから削除されません。</string>
+    <string name="album_photo_count">%d枚</string>
+
+    <!-- Photo -->
+    <string name="photo_empty">写真がありません</string>
+    <string name="photo_empty_hint">右下の＋ボタンで追加</string>
+    <string name="photo_delete_title">写真を削除</string>
+    <string name="photo_delete_message">この写真をアルバムから削除しますか？端末の写真は削除されません。</string>
+    <string name="photo_manage_title">写真管理</string>
+
+    <!-- Child Mode -->
+    <string name="child_exit_title">親モードに戻る</string>
+
+    <!-- Screen Pinning Guide -->
+    <string name="screen_pinning_title">画面の固定</string>
+    <string name="screen_pinning_desc">画面の固定を使うと、お子様がアプリを切り替えることができなくなります。</string>
+    <string name="screen_pinning_steps">1. 最近使ったアプリを開く\n2. ビュオリン子のアイコンをタップ\n3. 「このアプリを固定」を選択\n\n解除：戻る＋最近のアプリを長押し</string>
+
+    <!-- Common -->
+    <string name="common_create">作成</string>
+    <string name="common_cancel">キャンセル</string>
+    <string name="common_delete">削除</string>
+    <string name="common_back">戻る</string>
+    <string name="common_next">次へ</string>
+    <string name="common_skip">スキップ</string>
+
+    <!-- Biometric -->
+    <string name="biometric_prompt_title">認証</string>
+    <string name="biometric_prompt_subtitle">生体認証で親モードに戻ります</string>
 </resources>

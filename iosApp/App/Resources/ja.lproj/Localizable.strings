@@ -1,0 +1,12 @@
+/* Welcome */
+"welcome_subtitle" = "お子様に安心して写真を見せられる、見るだけフォトアルバム。";
+"welcome_start" = "はじめる";
+
+/* Guided Access */
+"guided_access_title" = "アクセスガイド";
+"guided_access_desc" = "アクセスガイドを使うと、お子様がアプリを切り替えることができなくなります。";
+"guided_access_steps" = "1. 設定 > アクセシビリティ > アクセスガイド を開く\n2. アクセスガイドをオンにする\n3. パスコードを設定する\n4. ビュオリン子を開き、サイドボタンを3回押して開始";
+
+/* Common */
+"common_next" = "次へ";
+"common_skip" = "スキップ";

@@ -6,8 +6,15 @@ struct ContentView: View {
     var body: some View {
         Group {
             switch appState.currentScreen {
+            case .welcome:
+                WelcomeView(onNext: { appState.currentScreen = .pinSetup })
             case .pinSetup:
-                PinSetupView(onPinSet: { appState.navigateToAlbumList() })
+                PinSetupView(onPinSet: { appState.currentScreen = .guidedAccessGuide })
+            case .guidedAccessGuide:
+                GuidedAccessGuideView(
+                    onNext: { appState.navigateToAlbumList() },
+                    onSkip: { appState.navigateToAlbumList() }
+                )
             case .pinInput:
                 PinInputView(onAuthenticated: { appState.navigateToAlbumList() })
             case .albumList:

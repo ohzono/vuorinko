@@ -14,6 +14,8 @@ import androidx.navigation.navArgument
 import com.komakoma.vuorinko.domain.repository.AuthRepository
 import com.komakoma.vuorinko.ui.screen.auth.PinInputScreen
 import com.komakoma.vuorinko.ui.screen.auth.PinSetupScreen
+import com.komakoma.vuorinko.ui.screen.onboarding.ScreenPinningGuideScreen
+import com.komakoma.vuorinko.ui.screen.onboarding.WelcomeScreen
 import com.komakoma.vuorinko.ui.screen.child.ChildViewerScreen
 import com.komakoma.vuorinko.ui.screen.parent.AlbumListScreen
 import com.komakoma.vuorinko.ui.screen.parent.PhotoManageScreen
@@ -26,17 +28,40 @@ fun AppNavigation() {
     var startDestination by remember { mutableStateOf<String?>(null) }
 
     LaunchedEffect(Unit) {
-        startDestination = if (authRepository.isPinSet()) "pin_input" else "pin_setup"
+        startDestination = if (authRepository.isPinSet()) "pin_input" else "welcome"
     }
 
     val dest = startDestination ?: return
 
     NavHost(navController = navController, startDestination = dest) {
+        composable("welcome") {
+            WelcomeScreen(onNext = {
+                navController.navigate("pin_setup") {
+                    popUpTo("welcome") { inclusive = true }
+                }
+            })
+        }
+
         composable("pin_setup") {
             PinSetupScreen(
                 onPinSet = {
-                    navController.navigate("album_list") {
+                    navController.navigate("screen_pinning_guide") {
                         popUpTo("pin_setup") { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        composable("screen_pinning_guide") {
+            ScreenPinningGuideScreen(
+                onNext = {
+                    navController.navigate("album_list") {
+                        popUpTo("screen_pinning_guide") { inclusive = true }
+                    }
+                },
+                onSkip = {
+                    navController.navigate("album_list") {
+                        popUpTo("screen_pinning_guide") { inclusive = true }
                     }
                 }
             )
