@@ -7,6 +7,9 @@ CREATE TABLE Photo (
     FOREIGN KEY (albumId) REFERENCES Album(id) ON DELETE CASCADE
 );
 
+selectAll:
+SELECT * FROM Photo;
+
 selectByAlbumId:
 SELECT * FROM Photo WHERE albumId = ? ORDER BY sortOrder ASC;
 
