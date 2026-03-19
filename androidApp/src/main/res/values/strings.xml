@@ -1,4 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Vuorinko</string>
+    <string name="app_subtitle">View-Only Photo Album</string>
+
+    <!-- Welcome -->
+    <string name="welcome_subtitle">A safe, view-only photo album for kids.</string>
+    <string name="welcome_start">Get Started</string>
+
+    <!-- PIN -->
+    <string name="pin_input_title">Enter PIN</string>
+    <string name="pin_setup_title">Set your PIN</string>
+    <string name="pin_confirm_title">Confirm your PIN</string>
+    <string name="pin_error_wrong">Wrong PIN (%d attempts remaining)</string>
+    <string name="pin_error_mismatch">PINs don\'t match. Please try again.</string>
+    <string name="pin_lockout">Locked. Try again in %d seconds.</string>
+
+    <!-- Album -->
+    <string name="album_list_empty">No albums yet</string>
+    <string name="album_list_empty_hint">Tap + to create one</string>
+    <string name="album_create_title">New Album</string>
+    <string name="album_name_label">Album name</string>
+    <string name="album_delete_title">Delete Album</string>
+    <string name="album_delete_message">Delete \"%s\"? Photos won\'t be removed from your library.</string>
+    <string name="album_photo_count">%d photos</string>
+
+    <!-- Photo -->
+    <string name="photo_empty">No photos</string>
+    <string name="photo_empty_hint">Tap + to add</string>
+    <string name="photo_delete_title">Remove Photo</string>
+    <string name="photo_delete_message">Remove this photo from the album? It won\'t be deleted from your device.</string>
+    <string name="photo_manage_title">Manage Photos</string>
+
+    <!-- Child Mode -->
+    <string name="child_exit_title">Return to Parent Mode</string>
+
+    <!-- Screen Pinning Guide -->
+    <string name="screen_pinning_title">Screen Pinning</string>
+    <string name="screen_pinning_desc">Screen Pinning keeps Vuorinko on screen so your child can\'t switch apps.</string>
+    <string name="screen_pinning_steps">1. Open recent apps\n2. Tap the Vuorinko icon\n3. Select \"Pin this app\"\n\nTo unpin: Hold Back + Recents</string>
+
+    <!-- Common -->
+    <string name="common_create">Create</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_back">Back</string>
+    <string name="common_next">Next</string>
+    <string name="common_skip">Skip</string>
+
+    <!-- Biometric -->
+    <string name="biometric_prompt_title">Authenticate</string>
+    <string name="biometric_prompt_subtitle">Use biometrics to return to parent mode</string>
 </resources>
