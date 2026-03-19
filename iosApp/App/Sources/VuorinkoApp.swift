@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 @main
 struct VuorinkoApp: App {
@@ -6,5 +7,6 @@ struct VuorinkoApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [Album.self, PhotoRef.self])
     }
 }

@@ -1,9 +1,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var appState = AppState()
+
     var body: some View {
-        Text("Vuorinko")
-            .font(.largeTitle)
+        Group {
+            switch appState.currentScreen {
+            case .pinSetup:
+                PinSetupView(onPinSet: { appState.navigateToAlbumList() })
+            case .pinInput:
+                PinInputView(onAuthenticated: { appState.navigateToAlbumList() })
+            case .albumList:
+                AlbumListView(
+                    onAlbumTap: { albumId in appState.navigateToPhotoManage(albumId: albumId) },
+                    onChildMode: { albumId in appState.navigateToChildViewer(albumId: albumId) }
+                )
+            case .photoManage(let albumId):
+                PhotoManageView(albumId: albumId, onBack: { appState.navigateBack() })
+            case .childViewer(let albumId):
+                ChildViewerView(albumId: albumId, onExit: { appState.navigateBack() })
+            }
+        }
     }
 }
 
