@@ -1,0 +1,27 @@
+CREATE TABLE Photo (
+    id TEXT NOT NULL PRIMARY KEY,
+    albumId TEXT NOT NULL,
+    platformAssetId TEXT NOT NULL,
+    sortOrder INTEGER NOT NULL DEFAULT 0,
+    addedAt INTEGER NOT NULL,
+    FOREIGN KEY (albumId) REFERENCES Album(id) ON DELETE CASCADE
+);
+
+selectByAlbumId:
+SELECT * FROM Photo WHERE albumId = ? ORDER BY sortOrder ASC;
+
+countByAlbumId:
+SELECT COUNT(*) FROM Photo WHERE albumId = ?;
+
+insert:
+INSERT INTO Photo(id, albumId, platformAssetId, sortOrder, addedAt)
+VALUES (?, ?, ?, ?, ?);
+
+updateSortOrder:
+UPDATE Photo SET sortOrder = ? WHERE id = ?;
+
+delete:
+DELETE FROM Photo WHERE id = ?;
+
+deleteByAlbumId:
+DELETE FROM Photo WHERE albumId = ?;

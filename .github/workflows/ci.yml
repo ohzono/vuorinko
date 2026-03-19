@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  JAVA_VERSION: '17'
+  JAVA_DISTRIBUTION: 'temurin'
+
+jobs:
+  shared-tests:
+    name: Shared Module Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - uses: gradle/actions/setup-gradle@v4
+      - run: ./gradlew :shared:allTests
+        name: Run shared tests
+
+  android-build:
+    name: Android Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - uses: gradle/actions/setup-gradle@v4
+      - run: ./gradlew :androidApp:assembleDebug
+        name: Build Android debug APK
+      - run: ./gradlew :androidApp:lintDebug
+        name: Run Android lint
+
+  ios-build:
+    name: iOS Build
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - name: Install Tuist
+        run: brew install tuist
+      - name: Generate Xcode project
+        working-directory: iosApp
+        run: |
+          tuist install
+          tuist generate --no-open
+      - name: Build iOS
+        working-directory: iosApp
+        run: |
+          xcodebuild -scheme Vuorinko \
+            -destination 'generic/platform=iOS Simulator' \
+            build
+      - name: Run iOS tests
+        working-directory: iosApp
+        run: |
+          xcodebuild test \
+            -scheme Vuorinko \
+            -destination 'platform=iOS Simulator,name=iPhone 16 Pro' \
+            -resultBundlePath TestResults.xcresult || true

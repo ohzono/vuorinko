@@ -185,7 +185,7 @@ Kotlin Multiplatform (KMP) を採用。Compose Multiplatform (CMP) ではない�
 | --- | --- | --- |
 | Photo Access | PhotoKit (PHAsset) | MediaStore API |
 | UI Framework | SwiftUI | Jetpack Compose |
-| Local Storage | SwiftData (iOS 17+) | Room (via KMP shared) |
+| Local Storage | SQLDelight (KMP共通) | SQLDelight (KMP共通) |
 | Auth | LocalAuthentication | BiometricPrompt |
 | Exit Prevention | UIViewController override | WindowInsetsControllerCompat + Screen Pinning |
 

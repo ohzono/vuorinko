@@ -1,0 +1,29 @@
+CREATE TABLE Album (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    sortOrder INTEGER NOT NULL DEFAULT 0,
+    createdAt INTEGER NOT NULL,
+    updatedAt INTEGER NOT NULL
+);
+
+selectAll:
+SELECT * FROM Album ORDER BY sortOrder ASC;
+
+selectById:
+SELECT * FROM Album WHERE id = ?;
+
+count:
+SELECT COUNT(*) FROM Album;
+
+insert:
+INSERT INTO Album(id, name, sortOrder, createdAt, updatedAt)
+VALUES (?, ?, ?, ?, ?);
+
+updateName:
+UPDATE Album SET name = ?, updatedAt = ? WHERE id = ?;
+
+updateSortOrder:
+UPDATE Album SET sortOrder = ?, updatedAt = ? WHERE id = ?;
+
+delete:
+DELETE FROM Album WHERE id = ?;

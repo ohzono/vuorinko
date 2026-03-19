@@ -1,0 +1,31 @@
+# Gradle
+.gradle/
+build/
+local.properties
+
+# Android
+androidApp/build/
+shared/build/
+
+# iOS
+iosApp/*.xcodeproj/
+iosApp/*.xcworkspace/
+iosApp/Derived/
+iosApp/Tuist/.build/
+
+# Xcode
+*.xcuserdata/
+*.xcscmblueprint
+DerivedData/
+xcuserdata/
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# State files (keep for idea-to-app workflow)
+# .idea-to-app-*-state.json
