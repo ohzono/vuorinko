@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.komakoma.vuorinko.ui.navigation.AppNavigation
 import com.komakoma.vuorinko.ui.theme.VuorinkoTheme
 
 class MainActivity : ComponentActivity() {
@@ -12,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             VuorinkoTheme {
-                // TODO: Navigation setup
+                AppNavigation()
             }
         }
     }
