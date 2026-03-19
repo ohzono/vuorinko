@@ -14,8 +14,9 @@ private func codeSigningSettings() -> SettingsDictionary {
 
 // MARK: - KMP Framework
 
-/// KMP shared framework path (built by Gradle)
-private let sharedFrameworkPath = "../shared/build/bin/iosSimulatorArm64/releaseFramework"
+/// KMP shared XCFramework path (built by Gradle)
+/// Build with: ./gradlew :shared:assembleSharedDebugXCFramework
+private let sharedXCFrameworkPath: Path = "../shared/build/XCFrameworks/debug/shared.xcframework"
 
 // MARK: - Project
 
@@ -40,7 +41,9 @@ let project = Project(
             ]),
             sources: ["App/Sources/**"],
             resources: ["App/Resources/**"],
-            dependencies: [],
+            dependencies: [
+                .xcframework(path: sharedXCFrameworkPath),
+            ],
             settings: .settings(base: codeSigningSettings())
         ),
 
